@@ -6,7 +6,7 @@ from time import sleep
 
 
 dtype = {'name': str, 'contact': str}
-contacts_df = pd.read_csv('./numbers.csv', dtype=dtype)
+contacts_df = pd.read_csv('./data/Students-131_abc.csv', dtype=dtype)
 contacts = contacts_df['contact'].tolist()
 print('contacts imported\nOpening Whatsapp\n')
 
@@ -14,8 +14,10 @@ driver = webdriver.Chrome()
 driver.get('https://web.whatsapp.com')
 input("Press Enter after scanning the QR code")
 
-message = 'This message is for testing purpose. Please ignore this'
+# message = "This message is for testing purpose. %0APlease ignore this \nwww.duckduckgo.com"
+message = ""
 
+cnt = 1
 for contact in contacts:
     try:
         url = f"https://web.whatsapp.com/send?phone={'+91' if contact[:3] != '+91' else ''}{contact}&text={message}"
@@ -26,13 +28,15 @@ for contact in contacts:
         action = ActionChains(driver)
         action.send_keys(Keys.ENTER)
         action.perform()
-        print("Message Sent to: ", contact)
+        print(f"{cnt}. Message Sent to: {contact}")
+        cnt = cnt+1
         sleep(5)
     except:
         print("Error in sending the message to", contact)
 
+print('All done...')
 
-sleep(100)
+sleep(1000)
 driver.quit()
 
 

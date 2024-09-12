@@ -3,6 +3,8 @@
 pyenv.cfg
 
 numbers.csv
+data/
+*.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
