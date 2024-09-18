@@ -137,6 +137,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+wpautomation/
 
 # Spyder project settings
 .spyderproject

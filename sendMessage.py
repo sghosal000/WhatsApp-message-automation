@@ -5,9 +5,9 @@ from selenium.webdriver.common.keys import Keys
 from time import sleep
 
 
-dtype = {'name': str, 'contact': str}
-contacts_df = pd.read_csv('./data/Students-131_abc.csv', dtype=dtype)
-contacts = contacts_df['contact'].tolist()
+dtype = {'name': str, 'phone': str}
+contacts_df = pd.read_csv('./data/Students-81_kohinoor.csv', dtype=dtype)
+contacts = contacts_df['phone'].tolist()
 print('contacts imported\nOpening Whatsapp\n')
 
 driver = webdriver.Chrome()
